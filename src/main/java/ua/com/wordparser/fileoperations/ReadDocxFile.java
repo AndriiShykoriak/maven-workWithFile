@@ -8,14 +8,15 @@ import java.io.FileInputStream;
 import java.util.List;
 
 public class ReadDocxFile {
-    public static void readDocxFile(String fileName) {
+    public static void readDocxFile(final String fileName) {
         try {
             File file = new File(fileName);
             FileInputStream fis = new FileInputStream(file.getAbsolutePath());
             XWPFDocument document = new XWPFDocument(fis);
 
             List<XWPFParagraph> paragraphs = document.getParagraphs();
-            System.out.println("The total number of paragraphs in the file:\t[" + paragraphs.size() + "]\n");
+            System.out.println("The total number of paragraphs in the file:\t["
+                    + paragraphs.size() + "]\n");
             for (XWPFParagraph para : paragraphs) {
                 System.out.println(para.getText());
             }

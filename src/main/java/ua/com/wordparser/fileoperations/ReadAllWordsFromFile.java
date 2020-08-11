@@ -12,7 +12,8 @@ import java.util.stream.Collectors;
 
 
 public class ReadAllWordsFromFile {
-    public static long getWordCount(String file) throws IOException {
+    public final static long
+    getWordCount(final String file) throws IOException {
         POITextExtractor textExtractor;
         XWPFDocument doc = new XWPFDocument(new FileInputStream(file));
         textExtractor = new XWPFWordExtractor(doc);
@@ -22,7 +23,8 @@ public class ReadAllWordsFromFile {
     }
 
     @SneakyThrows
-    public static List<String> getWordSizeLargerThanNumber(String file, int shortLength) {
+    public final static List<String>
+    getWordSizeLargerThanNumber(final String file, final int shortLength) {
         POITextExtractor textExtractor;
         XWPFDocument doc = new XWPFDocument(new FileInputStream(file));
         textExtractor = new XWPFWordExtractor(doc);
@@ -32,12 +34,15 @@ public class ReadAllWordsFromFile {
     }
 
     @SneakyThrows
-    public static List<String> getMostPopularWords(String file, int quantity) {
+    public final static List<String>
+    getMostPopularWords(final String file, final int quantity) {
         POITextExtractor textExtractor;
         XWPFDocument doc = new XWPFDocument(new FileInputStream(file));
         textExtractor = new XWPFWordExtractor(doc);
 
-        List<String> text = Arrays.asList((textExtractor.getText().split("\\s+")));
+        List<String> text = Arrays.asList((textExtractor
+                .getText()
+                .split("\\s+")));
         Map<String, Integer> map = new HashMap<>();
         text.forEach(s -> {
             if (map.containsKey(s)) {
