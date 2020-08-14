@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.List;
 
-public class ReadDocxFile {
+public class FileReader {
     public static void readDocxFile(final String fileName) {
         try {
             File file = new File(fileName);

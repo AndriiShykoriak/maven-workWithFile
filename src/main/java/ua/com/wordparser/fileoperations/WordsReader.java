@@ -11,7 +11,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-public class ReadAllWordsFromFile {
+public class WordsReader {
     public final static long
     getWordCount(final String file) throws IOException {
         POITextExtractor textExtractor;
@@ -24,7 +24,7 @@ public class ReadAllWordsFromFile {
 
     @SneakyThrows
     public final static List<String>
-    getWordSizeLargerThanNumber(final String file, final int shortLength) {
+    getWordSizeLargerThan(final String file, final int shortLength) {
         POITextExtractor textExtractor;
         XWPFDocument doc = new XWPFDocument(new FileInputStream(file));
         textExtractor = new XWPFWordExtractor(doc);
